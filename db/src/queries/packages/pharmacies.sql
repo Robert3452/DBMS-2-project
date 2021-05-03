@@ -31,6 +31,12 @@ is
     p_result out sys_refcursor,
     p_offset integer,
     p_count out integer) is
+  declare
+    type r_pharmacies is record (
+      title varchar(1000)
+    );
+
+    v_count number := 0;
   begin
     open p_result for
     select id, title, address, phones, latitude, longitude, similarity_ph(title, p_query) as score from pharmacies
@@ -38,9 +44,14 @@ is
     order by score desc
     OFFSET p_offset ROWS
     FETCH NEXT 5 ROWS ONLY;
-    
-    select count(*) into p_count from pharmacies
-    where similarity(title, p_query) > 0.5;
+
+    for p in (select title from pharmacies) loop
+      if (similarity(title, p_query) > 0.5) then
+        v_count := v_count + 1;
+      end if;
+    end loop;
+
+    p_count = v_count;
   end;
   procedure get_pharmacy_by_drug(
     p_drug_id integer,
