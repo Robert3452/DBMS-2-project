@@ -1,1 +1,0 @@
-{"version":3,"file":"medicines.module.js","sourceRoot":"","sources":["../../src/medicines/medicines.module.ts"],"names":[],"mappings":";;;;;;;;;AAAA,2CAAwC;AACxC,2FAAsF;AACtF,kFAA6E;AAM7E,IAAa,eAAe,GAA5B,MAAa,eAAe;CAAG,CAAA;AAAlB,eAAe;IAJ3B,eAAM,CAAC;QACN,WAAW,EAAE,CAAC,uDAAyB,CAAC;QACxC,SAAS,EAAE,CAAC,iDAAsB,CAAC;KACpC,CAAC;GACW,eAAe,CAAG;AAAlB,0CAAe"}
